@@ -1,6 +1,6 @@
 import {addDate} from "./date.js"
 import {locallyRetrieveNote, locallyStoreNote} from "./localStorage.js"
-
+import { makeNoteDraggable } from "./drag.js";
 export function renderNote([uniqueId, note]){
     const noteDiv = document.createElement('div');
     noteDiv.classList.add('note');
@@ -21,6 +21,25 @@ export function renderNote([uniqueId, note]){
         </div>
     `;
     document.querySelector("main").appendChild(noteDiv);
+    //makeNoteDraggable(noteDiv, uniqueId);
+}
+
+export function renderNotesList(){
+    const stickyNotesData = locallyRetrieveNote();
+    const allNotesDiv = document.querySelector(".allNotes>div");
+    allNotesDiv.innerHTML = '';
+    for (const [uniqueId, note] of Object.entries(stickyNotesData)) {
+        const noteDiv = document.createElement("div");
+        noteDiv.classList.add("notePreview");
+        noteDiv.innerHTML = `
+            <div class="noteTitle">${note.title}</div>
+            <div class="noteDate">${note.date}</div>
+        `;
+        noteDiv.addEventListener("click", () => {
+            console.log(`Clicked on note with ID: ${uniqueId}`);
+        });
+        allNotesDiv.appendChild(noteDiv);
+    }
 }
 
 export function addNewNote(){
@@ -35,4 +54,5 @@ export function addNewNote(){
     stickyNotesData[uniqueId] = note;
     console.log("Notes after adding new one:", stickyNotesData);
     locallyStoreNote(stickyNotesData);
+    renderNotesList();
 }

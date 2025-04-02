@@ -1,4 +1,4 @@
-import { addNewNote,renderNote } from "./module/ui.js"
+import { addNewNote, renderNote, renderNotesList } from "./module/ui.js"
 import { locallyStoreNote, locallyRetrieveNote } from "./module/localStorage.js";
 
 function loadNotes() {
@@ -10,6 +10,7 @@ function loadNotes() {
 }
 
 window.addEventListener("DOMContentLoaded", loadNotes);
+window.addEventListener("DOMContentLoaded", renderNotesList);
 document.querySelector(".newNoteButton").addEventListener("click",addNewNote);
 document.querySelector("main").addEventListener("click",(event)=>{
     const targetedButton=event.target;
@@ -24,8 +25,8 @@ document.querySelector("main").addEventListener("click",(event)=>{
                 stickyNotesData[uniqueId].title = updatedTitle;
                 stickyNotesData[uniqueId].content = updatedContent;
                 locallyStoreNote(stickyNotesData);
-                console.log(`Updated note with ID ${uniqueId}`);
             }
+            renderNotesList();
         }
     
         else if (targetedButton.classList.contains("deleteBtn")) {
@@ -36,9 +37,9 @@ document.querySelector("main").addEventListener("click",(event)=>{
             if (stickyNotesData[uniqueId]) {
                 delete stickyNotesData[uniqueId];
                 locallyStoreNote(stickyNotesData);
-                console.log(`Deleted note with ID ${uniqueId}`);
             }    
             noteDiv.remove();
+            renderNotesList();
         }
 })
 //localStorage.clear();

@@ -44,11 +44,36 @@ body{
     border: 1px solid gray;
     background-color: #2C2C2E;
     padding: 2vh;
+    margin-bottom: 1vh;
 }
 .specialNotes>h4{
     color: white;
     font-size: 1.5rem;
     font-weight: 400;
+}
+.allNotes{
+    width: 98%;
+    height: 40vh;
+    border: 1px solid gray;
+    background-color: #2C2C2E;
+    padding: 2vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.allNotes>h4{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.notePreview{
+    width: 100%;
+    height: 5vh;
+    padding: 1vh;
+    margin-top: 0.5vh;
+    border: 1px solid gray;
+    color: white;
+    display: flex;
+    justify-content: space-between;
 }
 main{
     grid-area: "main";
@@ -59,6 +84,7 @@ main{
 .note{
     width: 15vw;
     min-height: 30vh;
+    position: absolute;
     height: auto;
     border: 1px solid;
     color: white;
