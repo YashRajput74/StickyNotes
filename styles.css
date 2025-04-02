@@ -19,6 +19,15 @@ body{
     background-color: #1F2123;
     padding: 1vh;
 }
+#sidebar button{
+    padding: 1vh;
+    height: 5vh;
+    border: 1px solid gray;
+    background-color: #2C2C2E;
+    margin-bottom: 1vh;
+    color: gray;
+    border-radius: 5px;
+}
 #sidebar input{
     width: 98%;
     height: 5vh;
@@ -29,15 +38,62 @@ body{
     color: white;
     background-color: #2C2C2E;
 }
-#sidebar>div:nth-child(2){
+.specialNotes{
     width: 98%;
     height: 40vh;
     border: 1px solid gray;
     background-color: #2C2C2E;
-    
+    padding: 2vh;
+}
+.specialNotes>h4{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 main{
     grid-area: "main";
+    position: relative;
     border: 1px solid black;
     /* background-color: #1F2123; */
+}
+.note{
+    width: 15vw;
+    min-height: 30vh;
+    height: auto;
+    border: 1px solid;
+    color: white;
+    background-color: #2C2C2E;
+    padding: 2vh;
+}
+.note>div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1vh;
+}
+.note>div:nth-child(1)>div:nth-child(1){
+    width: 80%;
+    border: none;
+    outline: none;
+}
+.note>div:nth-child(2){
+    width: 100%;
+    min-height: 19vh;
+    height: auto;
+    border: none;
+    outline: none;
+}
+.note>div:nth-child(3){
+    display: flex;
+    padding-left: 6vw;
+}
+.note>div:nth-child(3)>button{
+    border: none;
+    color: white;
+    padding: 1vh;
+    background-color: rgb(237, 52, 52);
+}
+.note>div:nth-child(3)>.saveBtn{
+    margin-right: 2vh;
+    padding: 1vh 1.5vh;
+    background-color: rgb(23, 178, 23);
 }
