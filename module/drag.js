@@ -2,10 +2,18 @@ export function makeNoteDraggable(noteDiv, uniqueId) {
     let offsetX, offsetY, isDragging = false;
 
     noteDiv.addEventListener('mousedown', (event) => {
+        if (
+            event.target.isContentEditable ||
+            event.target.closest('[contenteditable="true"]')
+        ) {
+            return;
+        }
+
         event.preventDefault();
         offsetX = event.clientX - noteDiv.offsetLeft;
         offsetY = event.clientY - noteDiv.offsetTop;
         isDragging = true;
+
         const onMouseMove = (moveEvent) => {
             if (isDragging) {
                 const newLeft = moveEvent.clientX - offsetX;
@@ -14,6 +22,7 @@ export function makeNoteDraggable(noteDiv, uniqueId) {
                 noteDiv.style.top = `${newTop}px`;
             }
         };
+
         const onMouseUp = () => {
             if (isDragging) {
                 isDragging = false;
@@ -21,6 +30,7 @@ export function makeNoteDraggable(noteDiv, uniqueId) {
                 document.removeEventListener('mouseup', onMouseUp);
             }
         };
+
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
     });

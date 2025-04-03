@@ -7,88 +7,35 @@
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
-body{
-    display: grid;
-    grid-template-columns: 20vw 80vw;
-    grid-template-rows: 100vh;
-    grid-area: "sidebar main";
-}
-#sidebar{
-    border: 1px solid black;
-    grid-area: "sidebar";
-    background-color: #1F2123;
+.newNoteButton{
+    width: 120px;
+    height: 60px;
     padding: 1vh;
-}
-#sidebar button{
-    padding: 1vh;
-    height: 5vh;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 2vh;
+    top: 2vh;
     border: 1px solid gray;
-    background-color: #2C2C2E;
-    margin-bottom: 1vh;
-    color: gray;
+    background-image: linear-gradient(90deg, #af2896, #509bf5);
+    color: white;
     border-radius: 5px;
 }
-#sidebar input{
-    width: 98%;
-    height: 5vh;
-    padding: 2vh;
-    margin-bottom: 1vh;
-    font-size: 1rem;
-    border: 1px solid gray;
-    color: white;
-    background-color: #2C2C2E;
-}
-.specialNotes{
-    width: 98%;
-    height: 40vh;
-    border: 1px solid gray;
-    background-color: #2C2C2E;
-    padding: 2vh;
-    margin-bottom: 1vh;
-}
-.specialNotes>h4{
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-.allNotes{
-    width: 98%;
-    height: 40vh;
-    border: 1px solid gray;
-    background-color: #2C2C2E;
-    padding: 2vh;
-    overflow-y: scroll;
-    scrollbar-width: none;
-}
-.allNotes>h4{
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-.notePreview{
-    width: 100%;
-    height: 5vh;
-    padding: 1vh;
-    margin-top: 0.5vh;
-    border: 1px solid gray;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-}
 main{
-    grid-area: "main";
+    width: 90vw;
+    height: 100vh;
     position: relative;
-    border: 1px solid black;
     /* background-color: #1F2123; */
 }
 .note{
-    width: 15vw;
-    min-height: 30vh;
+    width: 20vw;
+    min-height: 50vh;
     position: absolute;
     height: auto;
-    border: 1px solid;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.5), 5px 0px 5px rgba(0,0,0,0.5);
     color: white;
-    background-color: #2C2C2E;
+    background: linear-gradient(135deg, #5d9cec, #3b6ea5);
     padding: 2vh;
 }
 .note>div:nth-child(1){
@@ -103,23 +50,37 @@ main{
 }
 .note>div:nth-child(2){
     width: 100%;
-    min-height: 19vh;
+    min-height: 35vh;
     height: auto;
     border: none;
     outline: none;
 }
-.note>div:nth-child(3){
+.gradientButtons{
+    width: 100%;
+    height: 4vh;
+    margin-top: 2vh;
     display: flex;
-    padding-left: 6vw;
 }
-.note>div:nth-child(3)>button{
+.gradientBtn{
+    width:30px;
+    border-radius: 50%;
+}
+.buttonContainer{
+    display: flex;
+    padding-left: 11vw;
+}
+.buttonContainer>button{
     border: none;
     color: white;
     padding: 1vh;
-    background-color: rgb(237, 52, 52);
+    border-radius: 5px;
+    background-color: inherit;
+    background-color: rgba(0, 0, 0, 0.2);
 }
-.note>div:nth-child(3)>.saveBtn{
+.buttonContainer>button:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+.buttonContainer>.saveBtn{
     margin-right: 2vh;
     padding: 1vh 1.5vh;
-    background-color: rgb(23, 178, 23);
 }

@@ -1,4 +1,4 @@
-import { addNewNote, renderNote, renderNotesList } from "./module/ui.js"
+import { addNewNote, renderNote } from "./module/ui.js"
 import { locallyStoreNote, locallyRetrieveNote } from "./module/localStorage.js";
 
 function loadNotes() {
@@ -10,7 +10,6 @@ function loadNotes() {
 }
 
 window.addEventListener("DOMContentLoaded", loadNotes);
-window.addEventListener("DOMContentLoaded", renderNotesList);
 document.querySelector(".newNoteButton").addEventListener("click",addNewNote);
 document.querySelector("main").addEventListener("click",(event)=>{
     const targetedButton=event.target;
@@ -26,7 +25,6 @@ document.querySelector("main").addEventListener("click",(event)=>{
                 stickyNotesData[uniqueId].content = updatedContent;
                 locallyStoreNote(stickyNotesData);
             }
-            renderNotesList();
         }
     
         else if (targetedButton.classList.contains("deleteBtn")) {
@@ -39,7 +37,13 @@ document.querySelector("main").addEventListener("click",(event)=>{
                 locallyStoreNote(stickyNotesData);
             }    
             noteDiv.remove();
-            renderNotesList();
         }
+})
+document.querySelector("main").addEventListener("click", (event) => {
+    if (event.target.classList.contains("gradientBtn")) {
+        const noteDiv = event.target.closest('.note');
+        const gradient = event.target.style.background;
+        noteDiv.style.background = gradient;
+    }
 })
 //localStorage.clear();
