@@ -27,8 +27,8 @@ main{
     /* background-color: #1F2123; */
 }
 .note{
-    width: 20vw;
-    min-height: 50vh;
+    width: 300px;
+    min-height: 400px;
     position: absolute;
     height: auto;
     border: none;
@@ -41,7 +41,7 @@ main{
 .note>div:nth-child(1){
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1vh;
+    margin-bottom: 8px;
 }
 .note>div:nth-child(1)>div:nth-child(1){
     width: 80%;
@@ -50,7 +50,7 @@ main{
 }
 .note>div:nth-child(2){
     width: 100%;
-    min-height: 35vh;
+    min-height: 270px;
     height: auto;
     border: none;
     outline: none;
@@ -67,11 +67,11 @@ main{
 }
 .buttonContainer{
     display: flex;
-    padding-left: 11vw;
+    padding-left: 160px;
 }
 .buttonContainer>button{
     border: none;
-    color: white;
+    color: inherit;
     padding: 1vh;
     border-radius: 5px;
     background-color: inherit;
