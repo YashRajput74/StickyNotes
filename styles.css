@@ -66,7 +66,8 @@ main{
     display: none;
 }
 .gradientBtn{
-    width:30px;
+    width: 30px;
+    aspect-ratio: 1;
     border-radius: 50%;
 }
 .buttonContainer{
@@ -91,4 +92,26 @@ main{
 .buttonContainer>.saveBtn{
     margin-right: 1vh;
     padding: 1vh 1.5vh;
+}
+@media (max-width:1024px){
+    .newNoteButton{
+        width: 80px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    .note{
+        width: 200px;
+    }
+    .note>div:nth-child(2){
+        min-height: 150px;
+    }
+    .buttonContainer{
+        padding-left: 30px;
+    }
+    .note>div:nth-child(1)>div:nth-child(1){
+        width: 70%;
+    }
+    .gradientBtn{
+        width: 18px;
+    }
 }
