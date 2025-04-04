@@ -38,12 +38,29 @@ document.querySelector("main").addEventListener("click",(event)=>{
             }    
             noteDiv.remove();
         }
-})
-document.querySelector("main").addEventListener("click", (event) => {
-    if (event.target.classList.contains("gradientBtn")) {
-        const noteDiv = event.target.closest('.note');
-        const gradient = event.target.style.background;
-        noteDiv.style.background = gradient;
-    }
+        else if (targetedButton.classList.contains("colorBtn")) {
+            const noteDiv = targetedButton.closest('.note');
+            const colorDiv = noteDiv.querySelector(".gradientButtons");
+            if (colorDiv.style.display == "none") {
+                colorDiv.style.display = "flex";
+            }
+            else {
+                colorDiv.style.display = "none";
+            }
+        }
+        if (event.target.classList.contains("gradientBtn")) {
+            const noteDiv = event.target.closest('.note');
+            const gradient = event.target.style.background;
+            noteDiv.style.background = gradient;
+        }
+        if (event.target.closest('.note')) {
+            const clickedNote = event.target.closest('.note');
+            const allNotes = document.querySelectorAll('.note');
+            allNotes.forEach(note => {
+                note.style.zIndex = '';
+            });
+        
+            clickedNote.style.zIndex = 1000;
+        }      
 })
 //localStorage.clear();

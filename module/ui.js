@@ -30,6 +30,7 @@ export function renderNote([uniqueId, note]){
         </div>
         <div class="stickyContent" contenteditable="true">${note.content}</div>
         <div class="buttonContainer">
+            <button class="colorBtn">Color</button>
             <button class="saveBtn">Save</button>
             <button class="deleteBtn">Delete</button>
         </div>

@@ -28,7 +28,6 @@ main{
 }
 .note{
     width: 300px;
-    min-height: 400px;
     position: absolute;
     height: auto;
     border: none;
@@ -37,6 +36,9 @@ main{
     color: white;
     background: linear-gradient(135deg, #5d9cec, #3b6ea5);
     padding: 2vh;
+}
+.note.selected{
+    z-index: 100;
 }
 .note>div:nth-child(1){
     display: flex;
@@ -50,7 +52,9 @@ main{
 }
 .note>div:nth-child(2){
     width: 100%;
-    min-height: 270px;
+    min-height: 250px;
+    overflow-y: scroll;
+    scrollbar-width: none;
     height: auto;
     border: none;
     outline: none;
@@ -59,7 +63,7 @@ main{
     width: 100%;
     height: 4vh;
     margin-top: 2vh;
-    display: flex;
+    display: none;
 }
 .gradientBtn{
     width:30px;
@@ -67,7 +71,11 @@ main{
 }
 .buttonContainer{
     display: flex;
-    padding-left: 160px;
+    padding-left: 110px;
+}
+.buttonContainer>.colorBtn{
+    margin-right: 1vh;
+    padding: 1vh 1.5vh;
 }
 .buttonContainer>button{
     border: none;
@@ -81,6 +89,6 @@ main{
     background-color: rgba(0,0,0,0.5);
 }
 .buttonContainer>.saveBtn{
-    margin-right: 2vh;
+    margin-right: 1vh;
     padding: 1vh 1.5vh;
 }
