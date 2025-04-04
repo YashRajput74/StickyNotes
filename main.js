@@ -41,10 +41,10 @@ document.querySelector("main").addEventListener("click",(event)=>{
         else if (targetedButton.classList.contains("colorBtn")) {
             const noteDiv = targetedButton.closest('.note');
             const colorDiv = noteDiv.querySelector(".gradientButtons");
-            if (colorDiv.style.display == "none") {
+            if (colorDiv.style.display == "none"){
                 colorDiv.style.display = "flex";
             }
-            else {
+            else{
                 colorDiv.style.display = "none";
             }
         }
@@ -60,7 +60,7 @@ document.querySelector("main").addEventListener("click",(event)=>{
                 note.style.zIndex = '';
             });
         
-            clickedNote.style.zIndex = 1000;
+            clickedNote.style.zIndex = 10000;
         }      
 })
 //localStorage.clear();
