@@ -53,6 +53,7 @@ main{
 .note>div:nth-child(2){
     width: 100%;
     min-height: 250px;
+    max-height:400px;
     overflow-y: scroll;
     scrollbar-width: none;
     height: auto;
